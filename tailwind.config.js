@@ -1,99 +1,149 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html"],
+
   darkMode: ["selector", "[data-web-theme=dark]"],
+
   theme: {
     container: {
       center: true,
-      padding: "1.25rem",
+      padding: "1.5rem",
+      screens: {
+        "2xl": "1280px",
+      },
     },
+
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        heading: ["Sora", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
+
       colors: {
         primary: {
-          DEFAULT: "#3d63dd",
-          color: "#fff",
+          DEFAULT: "#ff4b89",
+          color: "#ffffff",
+
           light: {
-            1: "#fdfdfe",
-            2: "#f7f9ff",
-            3: "#edf2fe",
-            4: "#dfeaff",
-            5: "#d0dfff",
-            6: "#bdd1ff",
-            7: "#a6bff9",
-            8: "#87a5ef",
-            9: "#3d63dd",
-            10: "#3657c3",
-            11: "#395bc7",
-            12: "#1d2e5c",
+            1: "#fff8fa",
+            2: "#fff0f4",
+            3: "#ffe4ec",
+            4: "#ffd5e2",
+            5: "#ffc3d5",
+            6: "#ffacc5",
+            7: "#ff8fb2",
+            8: "#ff6a9a",
+            9: "#ff4b89",
+            10: "#e63e78",
+            11: "#bb0058",
+            12: "#66002c",
           },
+
           dark: {
-            1: "#1d222e",
-            2: "#1e2534",
-            3: "#233157",
-            4: "#273a6f",
-            5: "#2e4480",
-            6: "#364d8e",
-            7: "#3e58a0",
-            8: "#4664b8",
-            9: "#3d63dd",
-            10: "#3154cd",
-            11: "#94b5ff",
-            12: "#d5e2ff",
+            1: "#1a1014",
+            2: "#221118",
+            3: "#33111f",
+            4: "#471322",
+            5: "#591527",
+            6: "#6d1830",
+            7: "#8f2040",
+            8: "#bb0058",
+            9: "#ff4b89",
+            10: "#ff6a9a",
+            11: "#ffb1c3",
+            12: "#ffd9e0",
           },
         },
+
+        secondary: {
+          DEFAULT: "#9d05ff",
+        },
+
+        tertiary: {
+          DEFAULT: "#00dbe9",
+        },
+
         body: {
           light: {
-            1: "#fcfcfd",
-            2: "#f9f9fb",
-            3: "#eff0f3",
-            4: "#e7e8ec",
-            5: "#e0e1e6",
-            6: "#d8d9e0",
-            7: "#cdced7",
-            8: "#b9bbc6",
-            9: "#8b8d98",
-            10: "#80828d",
-            11: "#62636c",
-            12: "#1e1f24",
+            1: "#fafafa",
+            2: "#f5f5f5",
+            3: "#ededed",
+            4: "#e0e0e0",
+            5: "#d4d4d4",
+            6: "#c8c8c8",
+            7: "#b0b0b0",
+            8: "#909090",
+            9: "#737373",
+            10: "#606060",
+            11: "#404040",
+            12: "#202020",
           },
+
           dark: {
-            1: "#212224",
-            2: "#28292b",
-            3: "#303134",
-            4: "#36373b",
-            5: "#3c3d42",
-            6: "#43444a",
-            7: "#4f5058",
-            8: "#666872",
-            9: "#72747f",
-            10: "#7d7f8a",
-            11: "#b4b6bf",
-            12: "#eeeef0",
+            1: "#131313",
+            2: "#1c1b1b",
+            3: "#201f1f",
+            4: "#2a2a2a",
+            5: "#353534",
+            6: "#404040",
+            7: "#525252",
+            8: "#707070",
+            9: "#909090",
+            10: "#b0b0b0",
+            11: "#d0d0d0",
+            12: "#e5e2e1",
           },
         },
       },
+
       borderColor: {
         alpha: {
-          light: "#00073527",
-          dark: "#d6dbfc2f",
+          light: "rgba(0,0,0,0.08)",
+          dark: "rgba(255,255,255,0.10)",
         },
       },
+
       backgroundColor: {
         body: {
           striped: {
-            light: "#00005506",
-            dark: "#adc5f30f",
+            light: "#fafafa",
+            dark: "#181818",
           },
         },
       },
+
       boxShadow: {
-        "card-1": "0px 0px 40px 0px rgba(0, 0, 0, 0.08)",
-        "card-2": "0px 10px 20px 0 rgba(0, 0, 0, 0.08)",
+        "glass":
+          "0 8px 32px rgba(0,0,0,0.35)",
+
+        "neon-pink":
+          "0 0 10px rgba(255,75,137,.5), 0 0 20px rgba(255,75,137,.3)",
+
+        "neon-purple":
+          "0 0 10px rgba(157,5,255,.5), 0 0 20px rgba(157,5,255,.3)",
+
+        "card-1":
+          "0px 0px 40px rgba(255,75,137,.08)",
+
+        "card-2":
+          "0px 10px 20px rgba(0,0,0,.25)",
+      },
+
+      borderRadius: {
+        xl: "1.5rem",
+        "2xl": "1.75rem",
+      },
+
+      backgroundImage: {
+        "hero-gradient":
+          "linear-gradient(135deg,#ff4b89 0%,#9d05ff 60%,#00dbe9 100%)",
+
+        "glass-gradient":
+          "linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02))",
       },
     },
   },
+
   plugins: [],
 };
