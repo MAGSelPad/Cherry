@@ -1,5 +1,43 @@
+const recommendations = {
+  "BLACKPINK": [
+    "🎵 JUMP",
+    "🎵 Pink Venom",
+    "🎵 How You Like That"
+  ],
+
+  "TWICE": [
+    "🎵 Strategy",
+    "🎵 Feel Special",
+    "🎵 Talk That Talk"
+  ],
+
+  "aespa": [
+    "🎵 Supernova",
+    "🎵 Drama",
+    "🎵 Armageddon"
+  ],
+
+  "IVE": [
+    "🎵 I AM",
+    "🎵 HEYA",
+    "🎵 LOVE DIVE"
+  ],
+
+  "NewJeans": [
+    "🎵 Ditto",
+    "🎵 OMG",
+    "🎵 Super Shy"
+  ],
+
+  "(G)I-DLE": [
+    "🎵 Queencard",
+    "🎵 TOMBOY",
+    "🎵 Fate"
+  ]
+};
+
 // Formulario de suscripción - envío de datos por HTTP POST
-(function() {
+(function () {
   const form = document.getElementById('subscriptionForm');
   const resultContainer = document.getElementById('subscriptionResult');
   const formEndpoint = 'https://formspree.io/f/mlgyekoa'; // Reemplaza con tu endpoint POST real
@@ -33,18 +71,23 @@
     return;
   }
 
-  form.addEventListener('submit', async function(event) {
+  form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     showMessage('info', '⏳ Enviando solicitud...', 'Por favor espera mientras procesamos tu mensaje.');
 
     const formData = new FormData(form);
+    const userName = formData.get("name");
+    const favoriteGroup = formData.get("favoriteGroup");
 
     try {
       const response = await sendPost(formData);
 
       if (response.ok) {
-        showMessage('success', '✓ ¡Solicitud enviada correctamente!', 'El formulario se envió correctamente.');
+        showMessage('success', '✓ ¡Bienvenido a Cherry!', 'Tu suscripción fue registrada correctamente.');
+
+        showPersonalizedContent(userName, favoriteGroup);
+
         form.reset();
       } else {
         const errorData = await response.json().catch(() => null);
@@ -56,3 +99,45 @@
     }
   });
 })();
+
+
+function showPersonalizedContent(name, favoriteGroup) {
+
+  const section =
+    document.getElementById("welcomeSection");
+
+  const title =
+    document.getElementById("welcomeTitle");
+
+  const text =
+    document.getElementById("welcomeText");
+
+  const cards =
+    document.getElementById("recommendationCards");
+
+  title.textContent =
+    `💖 Hola ${name}, ¡un gusto recibirte!`;
+
+  text.innerHTML =
+    `Sabemos que <strong>${favoriteGroup}</strong> es tu grupo favorito, así que creemos que estas canciones pueden gustarte.`;
+
+  const recommendationsList =
+    recommendations[favoriteGroup] || [];
+
+  cards.innerHTML =
+    recommendationsList
+      .map(item => `
+        <div
+          class="rounded-xl bg-primary/10 border border-primary/20 p-4"
+        >
+          ${item}
+        </div>
+      `)
+      .join("");
+
+  section.classList.remove("hidden");
+
+  section.scrollIntoView({
+    behavior: "smooth"
+  });
+}

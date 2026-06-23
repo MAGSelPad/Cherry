@@ -683,7 +683,7 @@
             Fan Zone
           </h6>
 
-          <div id="fanMessages"></div>
+
           <h2 class="mb-6">Cherry Community</h2>
           <p>
             Comparte tus opiniones, comeback favoritos y apoya a tus artistas favoritos junto a otros fans.
@@ -704,7 +704,7 @@
           <div class="swiper-wrapper" id="fanMessages">
             <div class="swiper-slide">
               <div class="rounded-xl bg-body-light-1 dark:bg-body-dark-12/10 px-5 py-8 shadow-card-2 sm:px-8">
-                <p class="mb-6 text-base text-body-light-11 dark:text-body-dark-11">
+                <p class="mb-6 text-base text-body-light-11 dark:text-body-dark-11 line-clamp-6 break-words">
                   Twice nunca decepciona 🔥🔥🔥🔥
                 </p>
                 <figure class="flex items-center gap-4">
@@ -717,7 +717,7 @@
                       momosimp
                     </h3>
                     <p class="text-xs text-body-light-10 dark:text-body-dark-10">
-                      Twice Fan
+                      Once
                     </p>
                   </figcaption>
                 </figure>
@@ -726,7 +726,7 @@
 
             <div class="swiper-slide">
               <div class="rounded-xl bg-body-light-1 dark:bg-body-dark-12/10 px-5 py-8 shadow-card-2 sm:px-8">
-                <p class="mb-6 text-base text-body-light-11 dark:text-body-dark-11">
+                <p class="mb-6 text-base text-body-light-11 dark:text-body-dark-11 line-clamp-6 break-words">
                   Mi bias siempre será Yeh Shuhua 💖
                 </p>
                 <figure class="flex items-center gap-4">
@@ -739,7 +739,7 @@
                       MAGSelPad
                     </h3>
                     <p class="text-xs text-body-light-10 dark:text-body-dark-10">
-                      i-dle Fan
+                      Neverland
                     </p>
                   </figcaption>
                 </figure>
@@ -748,7 +748,7 @@
 
             <div class="swiper-slide">
               <div class="rounded-xl bg-body-light-1 dark:bg-body-dark-12/10 px-5 py-8 shadow-card-2 sm:px-8">
-                <p class="mb-6 text-base text-body-light-11 dark:text-body-dark-11">
+                <p class="mb-6 text-base text-body-light-11 dark:text-body-dark-11 line-clamp-6 break-words">
                   Lemonade de aespa es una copia muy descarada al SOTY 🙀
                 </p>
                 <figure class="flex items-center gap-4">
@@ -761,7 +761,7 @@
                       Bao Shen
                     </h3>
                     <p class="text-xs text-body-light-10 dark:text-body-dark-10">
-                      UI/UX Designer
+                      MY
                     </p>
                   </figcaption>
                 </figure>
@@ -770,9 +770,8 @@
 
             <div class="swiper-slide">
               <div class="rounded-xl bg-body-light-1 dark:bg-body-dark-12/10 px-5 py-8 shadow-card-2 sm:px-8">
-                <p class="mb-6 text-base text-body-light-11 dark:text-body-dark-11">
-                  "Our members are so impressed. It's intuitive. It's clean.
-                  It's distraction free. If you're building a community."
+                <p class="mb-6 text-base text-body-light-11 dark:text-body-dark-11 line-clamp-6 break-words">
+                  OMG ESTA PÁGINA ES MUY BUENA
                 </p>
                 <figure class="flex items-center gap-4">
                   <div class="h-[50px] w-[50px] overflow-hidden">
@@ -784,7 +783,7 @@
                       Emanuel Velzeboer
                     </h3>
                     <p class="text-xs text-body-light-10 dark:text-body-dark-10">
-                      Graphics Designer
+                      Blink
                     </p>
                   </figcaption>
                 </figure>
@@ -803,6 +802,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- Suscripcion section -->
     <section id="suscripcion" class="section-area">
@@ -892,9 +892,19 @@
                   </div>
 
                   <div class="col-12 md:col-6">
-                    <input type="text" name="subject"
+                    <select name="favoriteGroup" id="favoriteGroup"
                       class="block w-full px-5 py-3 rounded-md border border-solid border-alpha-light dark:border-alpha-dark text-inherit text-base focus:border-primary"
-                      placeholder="Asunto" required />
+                      required>
+                      <option value="" selected disabled>
+                        Grupo favorito
+                      </option>
+                      <option value="BLACKPINK">BLACKPINK</option>
+                      <option value="TWICE">TWICE</option>
+                      <option value="aespa">aespa</option>
+                      <option value="IVE">IVE</option>
+                      <option value="NewJeans">NewJeans</option>
+                      <option value="(G)I-DLE">(G)I-DLE</option>
+                    </select>
                   </div>
 
                   <div class="col-12">
@@ -917,6 +927,16 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+    <!-- Hidden -->
+    <section id="welcomeSection" class="hidden section-area">
+      <div class="container py-20 py-[100px] rounded-xl bg-body-light-1 dark:bg-primary-dark-2 px-600 shadow-card-2">
+        <h3 id="welcomeTitle" class="text-2xl font-bold mb-4"></h3>
+
+        <p id="welcomeText" class="mb-6"></p>
+
+        <div id="recommendationCards" class="grid gap-4 md:grid-cols-3"></div>
       </div>
     </section>
 
@@ -1058,7 +1078,8 @@
     <script type="module" src="./assets/js/main.js"></script>
     <script type="module" src="./assets/js/kpop-artists.js"></script>
     <script type="module" src="./assets/js/formulario.js"></script>
-    
+    <script type="module" src="./assets/js/fan-zone.js"></script>
+
     <script>
       // Scroll Reveal
       const sr = ScrollReveal({

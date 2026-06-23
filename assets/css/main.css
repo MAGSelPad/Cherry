@@ -2553,6 +2553,13 @@ p+p{
   background-color: rgb(255 106 154 / var(--tw-bg-opacity));
 }
 
+.line-clamp-6 {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 @media (min-width: 1024px){
   .dark\:lg\:bg-transparent:where([data-web-theme=dark], [data-web-theme=dark] *){
     background-color: transparent;
