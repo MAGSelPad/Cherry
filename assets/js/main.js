@@ -43,35 +43,12 @@ window.addEventListener("scroll", function () {
 });
 
 // Web theme
-const webTheme = document.querySelector("[data-web-trigger=web-theme]"),
-  html = document.querySelector("html");
+// Cherry siempre en modo oscuro
+const html = document.documentElement;
 
-window.addEventListener("load", function () {
-  var theme = localStorage.getItem("Cherry_WebTheme");
-
-  if (theme == "light") {
-    webTheme.innerHTML = '<i class="lni lni-sun"></i>';
-  } else if (theme == "dark") {
-    webTheme.innerHTML = '<i class="lni lni-night"></i>';
-  } else {
-    theme = "light";
-    localStorage.setItem("Cherry_WebTheme", theme);
-    webTheme.innerHTML = '<i class="lni lni-night"></i>';
-  }
-
-  html.dataset.webTheme = theme;
-});
-
-webTheme.addEventListener("click", function () {
-  var theme = localStorage.getItem("Cherry_WebTheme");
-
-  webTheme.innerHTML =
-    theme == "dark"
-      ? '<i class="lni lni-sun"></i>'
-      : '<i class="lni lni-night"></i>';
-  theme = theme == "dark" ? "light" : "dark";
-  localStorage.setItem("Cherry_WebTheme", theme);
-  html.dataset.webTheme = theme;
+window.addEventListener("load", () => {
+  html.dataset.webTheme = "dark";
+  localStorage.setItem("Cherry_WebTheme", "dark");
 });
 
 // Scrollspy
